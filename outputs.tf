@@ -1,3 +1,7 @@
+output "capacity_reservation_groups_id" {
+  description = "Map of id values across all capacity_reservation_groups, keyed the same as var.capacity_reservation_groups"
+  value       = { for k, v in azurerm_capacity_reservation_group.capacity_reservation_groups : k => v.id }
+}
 output "capacity_reservation_groups_location" {
   description = "Map of location values across all capacity_reservation_groups, keyed the same as var.capacity_reservation_groups"
   value       = { for k, v in azurerm_capacity_reservation_group.capacity_reservation_groups : k => v.location }
